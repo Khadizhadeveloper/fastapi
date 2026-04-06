@@ -5,6 +5,7 @@ class UserCreate(BaseModel):
     name: str
     email: str
     age: int
+    password: str
 
 class UserUpdate(BaseModel):
     name: Optional[str]=None
@@ -19,3 +20,11 @@ class UserResponse(BaseModel):
 
     class Config:
         from_attributes=True
+
+class LoginRequest(BaseModel):
+    email: str
+    password: str
+
+class TokenResponse(BaseModel):
+    access_token: str
+    token_type: str="bearer"
